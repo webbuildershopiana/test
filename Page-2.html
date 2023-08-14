@@ -78,6 +78,33 @@
   <div>
    Main page
   </div>
+  <div class="container">
+   <div class="row p-2 row-cols-1 row-cols-sm-2 row-cols-md-1">
+    <div class="col">
+     <form id="ixo0h">
+      <div class="mb-3">
+       <label for="exampleInputEmail1" class="form-label">Email address</label><input type="email" id="exampleInputEmail1" aria-describedby="emailHelp" class="form-control">
+       <div id="emailHelp" class="form-text">
+        We'll never share your email with anyone else.
+       </div>
+      </div>
+      <div class="mb-3">
+       <label for="exampleInputPassword1" class="form-label">Password</label><input type="password" id="exampleInputPassword1" class="form-control">
+      </div>
+      <div class="mb-3 form-check">
+       <input type="checkbox" id="exampleCheck1" class="form-check-input"><label for="exampleCheck1" class="form-check-label">Check me out</label>
+      </div><button type="submit" class="btn btn-primary">Submit</button>
+     </form>
+    </div>
+   </div>
+  </div>
+  <script>var props = {"ixo0h":{"name":"","target":"_self","method":"POST","url":"https://stgapi.shopiana.in/api/v1/wbWebsite/159/form/formData?store=test","emailenable":false}};
+          var ids = Object.keys(props).map(function(id) { return '#'+id }).join(',');
+          var els = document.querySelectorAll(ids);
+          for (var i = 0, len = els.length; i < len; i++) {
+            var el = els[i];
+            (function({name:t,method:e,url:n,emailenable:r}){if(t){const o=this;this.addEventListener("submit",i=>{i.preventDefault();const a=new FormData(o);a.append("emailEnabled",r),a.append("formName",t),fetch(n,{method:e,body:a}).then(t=>{if(t.ok)return t.json();throw new Error("API call failed")}).then(t=>{console.log("API response:",t)}).catch(t=>{console.error("Error during API call:",t)})})}else console.log("somthing went wrong")}.bind(el))(props[el.id]);
+          }</script>
  </body>
 </html>
 </html>
