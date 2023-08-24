@@ -22,7 +22,7 @@
 
 <!-- Google / Search Engine Tags -->
 <meta itemprop="name" content=Name>
-<meta itemprop="description" content=ITEMPROP_DECRIPTION>
+<meta itemprop="description" content=ITEMPROP_DESCRIPTION>
 <meta itemprop="image" content=ITEMPROP_IMAGE>
 
 <!-- MS Tile - for Microsoft apps-->
@@ -37,8 +37,8 @@
 
 <!-- Twitter Meta Tags -->
 <meta name="twitter:card" content=TWITTER_CARD>
-<meta name="twitter:title" content=TWITTER_TITLE>
-<meta name="twitter:description" content=TWITTER_DESCRIPTION>
+<meta name="twitter:title" content=Twitter title>
+<meta name="twitter:description" content=Twitter Discription>
 <meta name="twitter:image" content=TWITTER_IMAGE>
 
 <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -66,7 +66,7 @@
 
 <style type="text/css">
 
-* { box-sizing: border-box; } body {margin: 0;}
+* { box-sizing: border-box; } body {margin: 0;}#ik7yuw{color:black;}
 
 </style>
 
@@ -74,7 +74,7 @@
 		<html>
  <head></head>
  <body id="iuyr">
-  <nav class="navbar navbar-expand-lg navbar-light border" id="im1bi">
+  <nav id="im1bi" class="navbar navbar-expand-lg navbar-light border">
    <div class="container-fluid">
     <a href="#" class="navbar-brand">Navbar</a>
     <div id="toggle-e2d62b99-fa15-48c5-a956-3e2a4c99789c" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-e2d62b99-fa15-48c5-a956-3e2a4c99789c" aria-controls="collapse-e2d62b99-fa15-48c5-a956-3e2a4c99789c" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler">
@@ -100,53 +100,38 @@
     </div>
    </div>
   </nav>
-  <script>var props = {"i6ufu":{"name":"","target":"_self","method":"POST","url":"https://api.shopiana.in/api/v1/wbWebsite/159/form/formData?store=test","emailenable":false}};
+  <div class="container">
+   <div class="row p-2 row-cols-1 row-cols-sm-2 row-cols-md-2">
+    <div class="col" id="ictinj">
+     <img id="ik7yuw" src="https://dkcut7rvj02cb.cloudfront.net/files/test/ASSET/ravi-shekhar-P0a6TT0CvKg-unsplash.jpg">
+    </div>
+    <div class="col">
+     <form id="ic1mnh">
+      <div class="mb-3">
+       <label for="exampleInputEmail1" class="form-label">Email address</label><input type="email" required id="exampleInputEmail1-3" aria-describedby="emailHelp" class="form-control">
+       <div id="emailHelp-3" class="form-text">
+        We'll never share your email with anyone else.
+       </div>
+      </div>
+      <div class="mb-3">
+       <label for="exampleInputPassword1" class="form-label">Password</label><input type="password" required id="exampleInputPassword1-3" class="form-control">
+      </div>
+      <div class="mb-3">
+       <label for="formFile" class="form-label">Choose file</label><input type="file" required id="formFile-3" class="form-control">
+      </div>
+      <div class="mb-3 form-check">
+       <input type="checkbox" id="exampleCheck1-3" class="form-check-input"><label for="exampleCheck1" class="form-check-label">Check me out</label>
+      </div><button type="submit" class="btn btn-primary">Submit</button>
+     </form>
+    </div>
+   </div>
+  </div>
+  <script>var props = {"i6ufu":{"name":"","target":"_self","method":"POST","url":"https://api.shopiana.in/api/v1/wbWebsite/159/form/formData?store=test","emailenable":false},"ic1mnh":{"name":"","target":"_self","method":"POST","url":"https://api.shopiana.in/api/v1/wbWebsite/159/form/formData?store=test","emailenable":false}};
           var ids = Object.keys(props).map(function(id) { return '#'+id }).join(',');
           var els = document.querySelectorAll(ids);
           for (var i = 0, len = els.length; i < len; i++) {
             var el = els[i];
-            (function ({ name, target, method, url, emailenable }) {
-        // const submitButton = this.querySelector('[type=submit]'); // Find the submit button
-        if (name) {
-            const form = this;
-            this.addEventListener('submit', (e) => {
-                e.preventDefault(); // Prevent the default form submission
-                // Create a new FormData object
-                const formData = new FormData(form);
-                formData.append('emailEnabled', emailenable);
-                formData.append('formName', name);
-                // Perform an API call using fetch and Promises
-                fetch(url, {
-                    method: method,
-                    // headers: {
-                    //     'Content-Type': 'application/json',
-                    // },
-                    body: formData,
-                })
-                    .then(response => {
-                    if (response.ok) {
-                        // API call successful
-                        return response.json();
-                    }
-                    else {
-                        // API call failed
-                        throw new Error('API call failed');
-                    }
-                })
-                    .then(responseData => {
-                    console.log('API response:', responseData);
-                    // Your custom script logic here
-                })
-                    .catch(error => {
-                    console.error('Error during API call:', error);
-                });
-            });
-            // }
-        }
-        else {
-            console.log('somthing went wrong');
-        }
-    }.bind(el))(props[el.id]);
+            (function({name:t,method:e,url:n,emailenable:r}){if(t){const o=this;this.addEventListener("submit",i=>{i.preventDefault();const a=new FormData(o);a.append("emailEnabled",r),a.append("formName",t),fetch(n,{method:e,body:a}).then(t=>{if(t.ok)return t.json();throw new Error("API call failed")}).then(t=>{console.log("API response:",t)}).catch(t=>{console.error("Error during API call:",t)})})}else console.log("somthing went wrong")}.bind(el))(props[el.id]);
           }</script>
  </body>
 </html>
