@@ -71,7 +71,7 @@
 
 <style type="text/css">
 
-* { box-sizing: border-box; } body {margin: 0;}#gjs-payment-address{height:100px;}
+* { box-sizing: border-box; } body {margin: 0;}
 
 </style>
 
@@ -79,260 +79,56 @@
 		<html>
  <head></head>
  <body id="ijt9">
-  <form id="ih6s" class="mx-5 py-5">
-   <div class="row">
-    <h2 class="pb-2">Payment form</h2>
-    <div class="col-md-6 col-12 mt-md-0 mt-4">
-     <label for="gjs-payment-first-name" class="form-label">First Name</label><input type="text" required id="gjs-payment-first-name" placeholder="First name" class="form-control">
+  <div collection-type="product" collection-name="women" id="in87y" class="product-collection w-full p-3 mb-2 row gap-4">
+   <div data-gjs-type="product-card" class="col">
+    <div class="product-img">
+     <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product Image">
     </div>
-    <div class="col-md-6 col-12 mt-md-0 mt-4">
-     <label for="gjs-payment-last-name" class="form-label">Last Name</label><input type="text" required id="gjs-payment-last-name" placeholder="Last name" class="form-control">
+    <div class="product-name">
+     <h5 class="card-title">{{product.name}}</h5>
     </div>
-    <div class="col-md-6 col-12 mt-4">
-     <label for="gjs-payment-email" class="form-label">Email</label><input type="email" required id="gjs-payment-email" placeholder="Enter your email" class="form-control">
+    <div class="product-description">
+     <p class="card-text">{{product.description}}</p>
     </div>
-    <div class="col-md-6 col-12 mt-4">
-     <label for="gjs-payment-phone-number" class="form-label">Phone Number </label><input type="number" required name="gjs-payment-phone-number" id="gjs-payment-phone-number" placeholder="Enter your phone number" class="form-control">
-    </div>
-    <div class="col-md-6 col-12 mt-4">
-     <label for="gjs-payment-address" class="form-label">Comment</label><textarea placeholder="Leave a comment here" id="gjs-payment-address" required class="form-control"></textarea>
-    </div>
-    <div class="mt-4">
-     <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="product-price">
+     <h7 class="">
+      {{product.price}}
+     </h7>
     </div>
    </div>
-  </form>
-  <script>var props = {"ih6s":{"name":"test","target":"_self","method":"POST","emailenable":true,"formType":"SIMPLE_FORM","websiteId":159,"merchantCode":"test","formInitUrl":"https://devapi.shopiana.in/api/v1/website/form/payment/init?store=test","paymentCaputreUrl":"https://devapi.shopiana.in/api/v1/website/form/payment/capture?store=test","formDataurl":"https://devapi.shopiana.in/api/v1/wbWebsite/159/form/formData?store=test","price":"100","websiteName":"test","websiteNumber":"","websiteEmail":"support@mandigate.com","emailTemplateId":"100"}};
-          var ids = Object.keys(props).map(function(id) { return '#'+id }).join(',');
-          var els = document.querySelectorAll(ids);
-          for (var i = 0, len = els.length; i < len; i++) {
-            var el = els[i];
-            (function ({
-    name,
-    target,
-    method,
-    formDataurl,
-    emailenable,
-    websiteId,
-    merchantCode,
-    formInitUrl,
-    paymentCaputreUrl,
-    formType,
-    price,
-    websiteNumber,
-    websiteName,
-    websiteEmail,
-    emailTemplateId
-  }) {
-    console.log(price);
-    const form = this;
-    this.addEventListener('submit', e => {
-      e.preventDefault(); // Prevent the default form submission
-
-      if (!(name && price)) {
-        alert('Oops! We encountered a problem. Please check form name and price.');
-        return;
-      }
-
-      if (!(name && websiteId && formType && formDataurl && formInitUrl && paymentCaputreUrl)) {
-        alert("Oops! We encountered a problem. Please try again later.");
-        return;
-      }
-
-      const PAYMENT = {
-        COD_UPPERCASE: "COD",
-        COD: "cod",
-        AUTHORIZECAPTURE: "AUTHORIZECAPTURE",
-        ONLINEPAYMENT: "ONLINEPAYMENT",
-        RAZORPAY: "razorpay",
-        RAZORPAY_UPPERCASE: "RAZORPAY",
-        PAYMENT_INITIALIZATION: "payment/init",
-        INIT: "INIT",
-        PRIMARY_CARD: "primary",
-        PAYMENT_FAILED: "payment.failed",
-        RECEIPT_ORDER: "receipt_order_",
-        RAZOR_PAY_SUCCESSFULL: "onRazorPaySuccess",
-        SHIPPING: "Shipping",
-        SECONDARY_CARD: "secondary"
-      }; // Add Razorpay script dynamically
-
-      const razorpayScript = document.createElement('script');
-      razorpayScript.src = 'https://checkout.razorpay.com/v1/checkout.js';
-      razorpayScript.async = true; // Append the script to the document's head
-
-      document.head.appendChild(razorpayScript);
-      const formData = new FormData(form); // Create an object to store input values
-      // const formData = {};
-      // Loop through the form elements
-
-      for (let i = 0; i < form.elements.length; i++) {
-        const element = form.elements[i]; // Check if the element has a name and is an input, textarea, select, or checkbox
-
-        if (element.name) {
-          if (element.tagName === 'INPUT') {
-            // Check the input type
-            if (element.type === 'text' || element.type === 'number' || element.type === 'email') {
-              // Text inputs
-              formData[element.name] = element.value;
-            } else if (element.type === 'checkbox') {
-              // Checkboxes
-              formData[element.name] = element.checked;
-            }
-          } else if (element.tagName === 'TEXTAREA') {
-            // Textareas
-            formData[element.name] = element.value;
-          } else if (element.tagName === 'SELECT') {
-            // Select elements
-            formData[element.name] = element.value;
-          }
-        }
-      } // Create a new FormData object
-
-
-      formData.append('formName', name);
-      formData.append('price', price);
-
-      if (emailenable && emailTemplateId > 0) {
-        formData.append('emailEnabled', emailenable);
-        formData.append('emailTemplateId', emailTemplateId);
-      } // Perform an API call using fetch and Promises
-
-
-      fetch(formDataurl, {
-        method: "POST",
-        // headers: {
-        //     'Content-Type': 'application/json',
-        // },
-        body: formData
-      }).then(response => {
-        if (response.ok) {
-          // API call successful
-          return response.json();
-        } else {
-          // API call failed
-          throw new Error('API call failed');
-        }
-      }).then(formDataResponse => {
-        // IF IT IS A SIMPLE DATA FORM NOT A PAYMENT FORM
-        if (formType === "SIMPLE_FORM") {
-          form.reset();
-          alert("details saved successfully");
-          return;
-        } // Define the URL and data for the POST request
-
-
-        const data = {
-          websiteFormId: formDataResponse === null || formDataResponse === void 0 ? void 0 : formDataResponse.id,
-          amount: formDataResponse === null || formDataResponse === void 0 ? void 0 : formDataResponse.price,
-          websiteId: websiteId,
-          integrationKeys: {},
-          paymentId: "",
-          paymentModule: "wb_razorpay",
-          paymentToken: "",
-          paymentType: "ONLINEPAYMENT"
-        }; // Create headers for the request
-
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json'); // Create the request configuration
-
-        const requestOptions = {
-          method: 'POST',
-          headers: headers,
-          body: JSON.stringify(data)
-        };
-        fetch(formInitUrl, requestOptions).then(response => {
-          if (response.ok) {
-            // API call successful
-            return response.json();
-          } else {
-            // API call failed
-            throw new Error('API call failed');
-          }
-        }).then(order => {
-          var _a;
-
-          try {
-            if (order) {
-              // const details = JSON.parse(order.details);
-              const details = {}; // razorpay payment options
-
-              const options = {
-                key: (_a = order === null || order === void 0 ? void 0 : order.metadata) === null || _a === void 0 ? void 0 : _a.keyId,
-                amount: details === null || details === void 0 ? void 0 : details.amount,
-                currency: "INR",
-                name: "NJ collections",
-                description: '',
-                image: '',
-                order_id: order === null || order === void 0 ? void 0 : order.paymentToken,
-                receipt: PAYMENT.RECEIPT_ORDER + (order === null || order === void 0 ? void 0 : order.orderId),
-                handler: handlerResponse => {
-                  const paymentCaptureData = {
-                    amount: order === null || order === void 0 ? void 0 : order.amount,
-                    integrationKeys: {},
-                    paymentId: handlerResponse === null || handlerResponse === void 0 ? void 0 : handlerResponse.razorpay_payment_id,
-                    paymentModule: "wb_razorpay",
-                    paymentToken: handlerResponse === null || handlerResponse === void 0 ? void 0 : handlerResponse.razorpay_order_id,
-                    paymentType: "ONLINEPAYMENT",
-                    websiteFormId: formDataResponse === null || formDataResponse === void 0 ? void 0 : formDataResponse.id,
-                    websiteId: websiteId,
-                    signature: handlerResponse === null || handlerResponse === void 0 ? void 0 : handlerResponse.razorpay_signature,
-                    transactionType: PAYMENT.AUTHORIZECAPTURE
-                  };
-                  const requestOptions = {
-                    method: 'POST',
-                    headers: headers,
-                    body: JSON.stringify(paymentCaptureData)
-                  };
-                  fetch(paymentCaputreUrl, requestOptions).then(response => {
-                    if (response.ok) {
-                      // API call successful
-                      return response.json();
-                    } else {
-                      // API call failed
-                      throw new Error('API call failed');
-                    }
-                  }).then(responseData => {
-                    form.reset();
-                    alert("payment Received");
-                  }).catch(error => {
-                    console.log(error);
-                  });
-                },
-                prefill: {
-                  name: websiteName,
-                  email: websiteEmail,
-                  contact: websiteNumber
-                },
-                theme: {
-                  color: '#3399cc'
-                }
-              }; // razorpay object initalize
-
-              const rzp1 = new window.Razorpay(options); // init razopay payment window 
-
-              rzp1.open(); // handle
-
-              rzp1.on(PAYMENT.PAYMENT_FAILED, function (response) {
-                alert(response.error.description);
-              });
-            } else {
-              const errorMessage = 'PICKBAZAR_ERROR.SOMETHING_WENT_WRONG'; // toast.error(errorMessage);
-
-              console.log(errorMessage);
-            }
-          } catch (error) {
-            console.log(error);
-          }
-        }).catch(error => {
-          console.error('Error during API call:', error);
-        }); // await handlePlaceOrder();
-        // Your custom script logic here
-      }).catch(error => {
-        console.error('Error during API call:', error);
-      });
-    }); // }
-  }.bind(el))(props[el.id]);
-          }</script>
+   <div data-gjs-type="product-card" class="col">
+    <div class="product-img">
+     <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product Image">
+    </div>
+    <div class="product-name">
+     <h5 class="card-title">{{product.name}}</h5>
+    </div>
+    <div class="product-description">
+     <p class="card-text">{{product.description}}</p>
+    </div>
+    <div class="product-price">
+     <h7 class="">
+      {{product.price}}
+     </h7>
+    </div>
+   </div>
+   <div data-gjs-type="product-card" class="col">
+    <div class="product-img">
+     <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product Image">
+    </div>
+    <div class="product-name">
+     <h5 class="card-title">{{product.name}}</h5>
+    </div>
+    <div class="product-description">
+     <p class="card-text">{{product.description}}</p>
+    </div>
+    <div class="product-price">
+     <h7 class="">
+      {{product.price}}
+     </h7>
+    </div>
+   </div>
+  </div>
  </body>
 </html>
 </html>
