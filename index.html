@@ -98,6 +98,44 @@
     </div>
    </nav>
   </div>
+  <div id="ieybdf">
+   <nav class="navbar bg-white navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+     <a href="#" class="navbar-brand">Shopiana</a>
+     <div class="hamburger1">
+      <span class="bar1"></span><span class="bar1"></span><span class="bar1"></span>
+     </div>
+     <div id="collapseId-2" class="collapse navbar-collapse">
+      <div class="navbar-nav">
+       <a href="#" class="nav-item nav-link active">Home</a><a href="#" class="nav-item nav-link">Profile</a>
+       <div class="nav-item dropdown">
+        <a href="#" data-bs-toggle="dropdown" class="nav-link dropdown-toggle">Messages</a>
+        <div class="dropdown-menu">
+         <a href="#" class="dropdown-item">Inbox</a><a href="#" class="dropdown-item">Sent</a><a href="#" class="dropdown-item">Drafts</a>
+        </div>
+       </div><a href="#" class="nav-item nav-link">About</a>
+      </div>
+      <div class="navbar-nav ms-auto">
+       <a href="#" class="nav-item nav-link">Login</a>
+      </div>
+     </div>
+    </div>
+   </nav>
+  </div>
+  <script>var items = document.querySelectorAll('#ieybdf');
+          for (var i = 0, len = items.length; i < len; i++) {
+            (function(){
+const hamburger = this.querySelectorAll(".hamburger1");
+        const navMenu = this.querySelectorAll(".navbar-collapse");
+        for (let i = 0; i < hamburger.length; i++) {
+            hamburger[i].addEventListener("click", function () {
+                hamburger[i].classList.toggle("active");
+                navMenu[i].classList.toggle("show");
+            });
+        }
+        ;
+}.bind(items[i]))();
+          }</script>
  </body>
 </html>
 </html>
