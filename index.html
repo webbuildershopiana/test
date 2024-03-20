@@ -293,7 +293,9 @@
                     }
                   }).then(responseData => {
                     form.reset();
-                    alert(`payment Received, your payment id  is ${paymentCaptureData.paymentId}`);
+                    alert(`Payment Successfully Received!
+                                                     Payment ID: ${paymentCaptureData.paymentId}
+                                                    `);
                   }).catch(error => {
                     console.log(error);
                   });
