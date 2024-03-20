@@ -293,7 +293,7 @@
                     }
                   }).then(responseData => {
                     form.reset();
-                    alert(`payment Received, your payment id  is ${responseData === null || responseData === void 0 ? void 0 : responseData.TRNORDERNUMBER}`);
+                    alert(`payment Received, your payment id  is ${paymentCaptureData.paymentId}`);
                   }).catch(error => {
                     console.log(error);
                   });
