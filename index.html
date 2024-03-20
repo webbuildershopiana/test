@@ -71,7 +71,7 @@
 
 <style type="text/css">
 
-* { box-sizing: border-box; } body {margin: 0;}
+* { box-sizing: border-box; } body {margin: 0;}#in776{background-color:#b6b6b6;}
 
 </style>
 
@@ -80,13 +80,13 @@
  <head></head>
  <body id="ijt9">
   <form id="i4ya" class="mx-5 py-5">
-   <div class="row row-cols-md-4" id="igo7">
+   <div id="igo7" class="row row-cols-md-4">
     <h2 class="pb-2">Payment form</h2>
-    <div class="col-md-6 col-12 mt-md-0 mt-4" id="im31t">
-     <label for="gjs-payment-first-name" class="form-label" id="in776">First Name</label><input type="text" required id="gjs-payment-first-name" placeholder="First name" name="gjs-payment-first-name" class="form-control">
+    <div id="im31t" class="col-md-6 col-12 mt-md-0 mt-4">
+     <label for="gjs-payment-first-name" id="in776" class="form-label">First Name</label><input type="text" required id="gjs-payment-first-name" placeholder="First name" name="gjs-payment-first-name" class="form-control">
     </div>
     <div class="col-md-6 col-12 mt-md-0 mt-4">
-     <label for="gjs-payment-last-name" class="form-label" id="iy9no">Last Name</label><input type="text" required id="gjs-payment-last-name" placeholder="Last name" name="gjs-payment-last-name" class="form-control">
+     <label for="gjs-payment-last-name" id="iy9no" class="form-label">Last Name</label><input type="text" required id="gjs-payment-last-name" placeholder="Last name" name="gjs-payment-last-name" class="form-control">
     </div>
     <div class="mt-4">
      <button type="submit" class="btn btn-primary">Submit</button>
@@ -284,9 +284,7 @@
                     }
                   }).then(responseData => {
                     form.reset();
-                    alert(`Payment Successfully Received!
-                                                     Payment ID: ${paymentCaptureData.paymentId}
-                                                    `);
+                    alert(`Payment Successfully Received! Payment ID: ${paymentCaptureData.paymentId}`);
                   }).catch(error => {
                     console.log(error);
                   });
